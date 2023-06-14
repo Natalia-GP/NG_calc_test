@@ -6,13 +6,16 @@ const links = [{
 }, {
     label: 'History',
     route: '/history'
+}, {
+    label: 'Home',
+    route: '/'
 }]
 
 export function Navigation() {
     return (
         <header className={styles.header}>
             <nav>
-                <ul className={styles.Navigation}>
+                <ul className={styles.navigation}>
                     {links.map(({ label, route }) => (
                         <li key={route}>
                             <Link href={route}>

@@ -6,4 +6,10 @@
 .navigation {
   display: flex;
   list-style: none;
+  gap: 35px;
+  text-decoration: none;
+}
+.navigation a:hover {
+  color: rgb(0, 255, 157);
+  text-decoration: none;
 }
