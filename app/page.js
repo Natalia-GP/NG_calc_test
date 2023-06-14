@@ -1,95 +1,62 @@
-import Image from 'next/image'
-import styles from './page.module.css'
+'use client';
+import { useState } from 'react';
 
 export default function Home() {
+  const [num1, setNum1] = useState(0);
+  const [num2, setNum2] = useState(0);
+  const [sumas, setSumas] = useState([]);
+
+  //functions
+
+  const handleInputChange = (event) => {
+    const { name, value } = event.target;
+
+    if (name === 'num1') {
+      setNum1(Number(value));
+    } else if (name === 'num2') {
+      setNum2(Number(value));
+    }
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    const resultado = num1 + num2;
+    const nuevaSuma = `${num1} + ${num2} = ${resultado}`;
+    setSumas([...sumas, nuevaSuma]); //crea nuevo array que tiene los elem exist en sumas seguidos por después se actualiza el estad sumas con este nuevo array
+  };
+
   return (
-    <main className={styles.main}>
-      <div className={styles.description}>
-        <p>
-          Get started by editing&nbsp;
-          <code className={styles.code}>app/page.js</code>
-        </p>
-        <div>
-          <a
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{' '}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className={styles.vercelLogo}
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
-        </div>
-      </div>
-
-      <div className={styles.center}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
-
-      <div className={styles.grid}>
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Docs <span>-&gt;</span>
-          </h2>
-          <p>Find in-depth information about Next.js features and API.</p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Learn <span>-&gt;</span>
-          </h2>
-          <p>Learn about Next.js in an interactive course with&nbsp;quizzes!</p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Templates <span>-&gt;</span>
-          </h2>
-          <p>Explore the Next.js 13 playground.</p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className={styles.card}
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2>
-            Deploy <span>-&gt;</span>
-          </h2>
-          <p>
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
-  )
+    <div className="divForm">
+      <h1 className="divForm__title">Suma App</h1>
+      <form id="form" onSubmit={handleSubmit}>
+        <label htmlFor="number-one">
+          Número 1:
+          <input
+            type="number"
+            name="num1"
+            value={num1}
+            onChange={handleInputChange}
+          />
+        </label>
+        <label htmlFor="number-two">
+          Número 2:
+          <input
+            type="number"
+            name="num2"
+            value={num2}
+            onChange={handleInputChange}
+          />
+        </label>
+        <button className="form__button" type="submit">
+          Sumar
+        </button>
+      </form>
+      <h2 className="divForm__h2">Sumas realizadas:</h2>
+      <ul className="divForm__list">
+        {sumas.map((suma, index) => (
+          <li key={index}>{suma}</li>
+        ))}
+      </ul>
+    </div>
+  );
 }
