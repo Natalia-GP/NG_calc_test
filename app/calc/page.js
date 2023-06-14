@@ -5,6 +5,7 @@ export default function Calc() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [sumas, setSumas] = useState([]);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     // Cargar sumas desde el Local Storage al cargar la página
@@ -23,18 +24,36 @@ export default function Calc() {
     const { name, value } = event.target;
 
     if (name === 'num1') {
-      setNum1(Number(value));
+      if (!isNaN(value)) {
+        setNum1(Number(value));
+        setError('');
+      } else {
+        setError('Debe ingresar un número válido');
+      }
     } else if (name === 'num2') {
-      setNum2(Number(value));
+      if (!isNaN(value)) {
+        setNum2(Number(value));
+        setError('');
+      } else {
+        setError('Debe ingresar un número válido');
+      }
     }
   };
 
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    const resultado = num1 + num2;
-    const nuevaSuma = `${num1} + ${num2} = ${resultado}`;
-    setSumas([...sumas, nuevaSuma]);
+
+    if (isNaN(num1) || isNaN(num2)) {
+      setError('Debe ingresar números válidos para realizar la suma');
+    } else {
+      const resultado = num1 + num2;
+      const nuevaSuma = `${num1} + ${num2} = ${resultado}`;
+      setSumas([...sumas, nuevaSuma]);
+      setError('');
+    }
   };
+
 
   return (
     <div className="divForm">
@@ -43,7 +62,7 @@ export default function Calc() {
         <label htmlFor="number-one">
           Número 1:
           <input
-            type="number"
+
             name="num1"
             value={num1}
             onChange={handleInputChange}
@@ -52,20 +71,26 @@ export default function Calc() {
         <label htmlFor="number-two">
           Número 2:
           <input
-            type="number"
+
             name="num2"
             value={num2}
             onChange={handleInputChange}
           />
         </label>
+        {error && <p className="error">{error}</p>}
         <button className="form__button" type="submit">
           Sumar
         </button>
       </form>
+
       <h2 className="divForm__h2">Sumas realizadas:</h2>
+
       <ul className="divForm__list">
         {sumas.map((suma, index) => (
-          <li key={index}>{suma}</li>
+          <li key={index}>{suma}
+
+          </li>
+
         ))}
       </ul>
     </div>
