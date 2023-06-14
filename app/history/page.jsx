@@ -1,3 +1,11 @@
+import History from '@/components/History';
+
 export default function Histoy() {
-  return <h1>Sumas realizadas:</h1>;
+  return (
+    <>
+      <div>
+        <History></History>
+      </div>
+    </>
+  );
 }

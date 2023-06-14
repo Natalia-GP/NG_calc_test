@@ -1,13 +1,23 @@
 'use client';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
-
-export default function calc() {
+export default function Calc() {
   const [num1, setNum1] = useState(0);
   const [num2, setNum2] = useState(0);
   const [sumas, setSumas] = useState([]);
 
-  //functions
+  useEffect(() => {
+    // Cargar sumas desde el Local Storage al cargar la página
+    const storedSumas = localStorage.getItem('sumas');
+    if (storedSumas) {
+      setSumas(JSON.parse(storedSumas));
+    }
+  }, []);
+
+  useEffect(() => {
+    // Guardar sumas en el Local Storage cuando haya cambios
+    localStorage.setItem('sumas', JSON.stringify(sumas));
+  }, [sumas]);
 
   const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -23,7 +33,7 @@ export default function calc() {
     event.preventDefault();
     const resultado = num1 + num2;
     const nuevaSuma = `${num1} + ${num2} = ${resultado}`;
-    setSumas([...sumas, nuevaSuma]); //crea nuevo array que tiene los elem exist en sumas seguidos por después se actualiza el estad sumas con este nuevo array
+    setSumas([...sumas, nuevaSuma]);
   };
 
   return (
@@ -61,3 +71,4 @@ export default function calc() {
     </div>
   );
 }
+
