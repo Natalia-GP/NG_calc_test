@@ -59,7 +59,7 @@ export default function Calc() {
 
   return (
     <div className={styles.divForm}>
-      <h1 className={"divForm__title"}>Calculadora de sumas</h1>
+      <h1 className={"divForm__title"}>Suma App</h1>
       <form id="form" className={styles.form} onSubmit={handleSubmit}>
         <label htmlFor="number-one">
           Número 1:

@@ -14,7 +14,6 @@ export default function Home() {
         <h1 >Bienvenido.</h1>
         <p>Para empezar pulsa el botón</p>
         <button className={styles.buttonHome} type="button" onClick={() => router.push('/calc')}>Comenzar</button>
-        {/* <Link href="/calc">Comenzar</Link> */}
 
       </div>
 

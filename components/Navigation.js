@@ -14,19 +14,17 @@ const links = [{
 export function Navigation() {
     return (
         <header className={styles.header}>
-            <div className={styles.divNav}>
-                <nav className={styles.nav}>
-                    <ul className={styles.navigation}>
-                        {links.map(({ label, route }) => (
-                            <li key={route}>
-                                <Link href={route}>
-                                    {label}
-                                </Link>
-                            </li>
-                        ))}
-                    </ul>
-                </nav>
-            </div>
+            <nav>
+                <ul className={styles.navigation}>
+                    {links.map(({ label, route }) => (
+                        <li key={route}>
+                            <Link href={route}>
+                                {label}
+                            </Link>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
         </header>
     )
 }

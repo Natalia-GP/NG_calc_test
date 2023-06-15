@@ -1,21 +1,38 @@
 .header {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  justify-items: center;
   border: 3px solid #ebf8e1;
   border-radius: 6px;
   background-color: rgb(226, 160, 17);
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  width: 100%;
 }
 
 .navigation {
   display: flex;
-  justify-content: space-evenly;
+  flex-direction: column;
   list-style: none;
   text-decoration: none;
+  padding: 0;
+  align-items: center;
+  gap: 3px;
+  font-style: oblique;
+  font-weight: bold;
+}
+
+@media (min-width: 768px) {
+  .navigation {
+    flex-direction: row;
+    justify-content: space-evenly;
+  }
 }
 .navigation a:hover {
   text-decoration: none;
-  color: rgb(117, 0, 82);
+  color: white;
   list-style: none;
+}
+.navigation a {
+  text-decoration: none;
+  color: inherit;
 }

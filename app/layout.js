@@ -8,12 +8,12 @@ const inter = Inter({ subsets: ['latin'] });
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+
       <head>
         <title>My app Natalia Gomez</title>
       </head>
       <body >
-        {/* <ErrorB></ErrorB> */}
-        <Navigation></Navigation>
+        <Navigation />
         {children}
       </body>
     </html>
