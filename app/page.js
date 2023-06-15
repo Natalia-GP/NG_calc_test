@@ -1,6 +1,7 @@
 'use client';
 
 import { useRouter } from "next/navigation";
+import styles from './pageHome.module.css';
 
 
 export default function Home() {
@@ -9,10 +10,13 @@ export default function Home() {
 
   return (
     <>
-      <h1>Bienvenido a esta App de cálculo
-        <button className="button" type="button" onClick={() => router.push('/calc')}>Comenzar</button>
+      <div className={styles.divHome}>
+        <h1 >Bienvenido.</h1>
+        <p>Para empezar pulsa el botón</p>
+        <button className={styles.buttonHome} type="button" onClick={() => router.push('/calc')}>Comenzar</button>
         {/* <Link href="/calc">Comenzar</Link> */}
-      </h1>
+
+      </div>
 
     </>
 

@@ -3,8 +3,9 @@
   flex-direction: column;
   justify-content: center;
   justify-items: center;
-  border: 1px solid pink;
-  border-radius: 4px;
+  border: 3px solid #ebf8e1;
+  border-radius: 6px;
+  background-color: rgb(226, 160, 17);
 }
 
 .navigation {
@@ -15,6 +16,6 @@
 }
 .navigation a:hover {
   text-decoration: none;
-  color: rgb(0, 255, 157);
+  color: rgb(117, 0, 82);
   list-style: none;
 }
