@@ -3,6 +3,13 @@
   flex-direction: column;
   align-items: center;
   font-family: 'Roboto', sans-serif;
+  margin-top: 30px;
+}
+.textHome {
+  font-weight: bold;
+  color: rgb(82, 27, 212);
+  font-size: large;
+  text-align: center;
 }
 .buttonHome {
   align-items: center;
@@ -17,6 +24,7 @@
   font-weight: 600;
   transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   overflow: hidden;
+  margin-top: 20px;
 }
 
 .buttonHome::before {

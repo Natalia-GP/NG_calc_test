@@ -37,9 +37,10 @@ const History = () => {
                     </button>
                 </div>
             ) : (
-                <p>No hay sumas realizadas</p>
-            )}
-        </div>
+                <p className={styles.text}>No hay sumas guardadas</p>
+            )
+            }
+        </div >
     );
 };
 
