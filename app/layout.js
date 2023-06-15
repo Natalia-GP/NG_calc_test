@@ -2,6 +2,7 @@ import { Inter } from 'next/font/google';
 import '../styles/globals.css';
 import { Navigation } from '../components/Navigation';
 const inter = Inter({ subsets: ['latin'] });
+// import { ErrorB } from '../components/ErrorB.jsx';
 
 
 export default function RootLayout({ children }) {
@@ -11,6 +12,7 @@ export default function RootLayout({ children }) {
         <title>My app Natalia Gomez</title>
       </head>
       <body >
+        {/* <ErrorB></ErrorB> */}
         <Navigation></Navigation>
         {children}
       </body>

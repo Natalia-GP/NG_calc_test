@@ -13,6 +13,7 @@ export default function Home() {
         <button className="button" type="button" onClick={() => router.push('/calc')}>Comenzar</button>
         {/* <Link href="/calc">Comenzar</Link> */}
       </h1>
+
     </>
 
   );

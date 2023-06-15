@@ -1,15 +1,20 @@
 .header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  justify-items: center;
   border: 1px solid pink;
   border-radius: 4px;
-  padding: 4px;
 }
+
 .navigation {
   display: flex;
+  justify-content: space-evenly;
   list-style: none;
-  gap: 35px;
   text-decoration: none;
 }
 .navigation a:hover {
-  color: rgb(0, 255, 157);
   text-decoration: none;
+  color: rgb(0, 255, 157);
+  list-style: none;
 }

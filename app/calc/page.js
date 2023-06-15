@@ -1,5 +1,7 @@
 'use client';
 import { useState, useEffect } from 'react';
+import styles from '../calc/page.module.css'
+
 
 export default function Calc() {
   const [num1, setNum1] = useState(0);
@@ -62,7 +64,6 @@ export default function Calc() {
         <label htmlFor="number-one">
           Número 1:
           <input
-
             name="num1"
             value={num1}
             onChange={handleInputChange}
@@ -71,7 +72,6 @@ export default function Calc() {
         <label htmlFor="number-two">
           Número 2:
           <input
-
             name="num2"
             value={num2}
             onChange={handleInputChange}
@@ -82,15 +82,11 @@ export default function Calc() {
           Sumar
         </button>
       </form>
-
       <h2 className="divForm__h2">Sumas realizadas:</h2>
-
       <ul className="divForm__list">
         {sumas.map((suma, index) => (
           <li key={index}>{suma}
-
           </li>
-
         ))}
       </ul>
     </div>

@@ -1,5 +1,6 @@
 'use client'
 import { useEffect, useState } from 'react';
+import styles from './History.module.css'
 
 const History = () => {
     const [sumas, setSumas] = useState([]);
@@ -12,9 +13,9 @@ const History = () => {
     }, []);
 
     return (
-        <div>
-            <h1>Historial de Sumas</h1>
-            <ul>
+        <div className={styles.div}>
+            <h1 className={styles.title}>Historial de Sumas</h1>
+            <ul className={styles.list}>
                 {sumas.map((suma, index) => (
                     <li key={index}>{suma}</li>
                 ))}
