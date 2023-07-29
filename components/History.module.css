@@ -19,6 +19,19 @@
     font-size: x-large;
   }
 }
+
+
+
+.list {
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.text {
+  color: rgb(194, 3, 3);
+}
+
 /* Button */
 .clearButton {
   position: relative;
@@ -81,12 +94,4 @@
   }
 }
 
-.list {
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-.text {
-  color: rgb(194, 3, 3);
-}
+
